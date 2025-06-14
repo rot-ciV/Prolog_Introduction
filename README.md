@@ -1,1 +1,3 @@
 # Introdu-o-Prolog
+
+delta
