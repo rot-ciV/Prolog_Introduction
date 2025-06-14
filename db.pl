@@ -22,7 +22,8 @@ inseto(X) :-
 
 aracnideo(X) :- 
     artropode(X),
-    member(X, [aranha, escorpiao]).
+    member(X, [aranha, escorpiao]),
+    explicacao_aracnideo(X).
 
 crustaceo(X) :- 
     artropode(X),
@@ -54,3 +55,16 @@ explicacao_inseto(lagarta) :-
     write('- Corpo dividido em: cabeça, tórax e abdômen'), nl,
     write('- Exoesqueleto de quitina'), nl,
     write('Curiosidade: A lagarta é a fase larval de insetos como borboletas e mariposas.'), nl.
+
+explicacao_aracnideo(aranha) :-
+    write('A aranha, mesmo muitas vezes confudida como um inseto, é o exemplo clássico de aracnídeo por características como:'), nl,
+    write('- 8 patas (diferentemente dos insetos).'), nl,
+    write('- Corpo divido em 2 partes: cefalotórax e abdômen.'), nl,
+    write('- Não apresentam mandibulas, mas sim quelíceras.'), nl.
+
+explicacao_aracnideo(escorpiao) :-
+    write('O escorpião também é considerado um aracnídeo, pelo fato de:'), nl,
+    write('- Ter 4 pares de patas.'), nl,
+    write('- Apresentar um corpo divido em apenas 2 partes: cefalotórax e abdômen.'), nl,
+    write('- Não possuí antenas.'), nl.
+
