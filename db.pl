@@ -10,3 +10,5 @@ artropodes(camarao).
 inseto(artropodes, 3_pernas)
 
 
+does_formiga_dances :- formiga(artropodes),
+    write ('formiga n danca doido')

@@ -1,2 +1,27 @@
-swipl: começar a rodar o SWI-Prolog.
+swipl -s: começar a rodar o SWI-Prolog.
 
+
+Todo exemplo que começar com letra Maiuscula o prolog vai entender como uma váriavel, tentando assim, preencher esse valor.
+Já os exemplos que começam com letras minusculas, o prolog vai entder como um átomo, desta forma, irá testar se ele se encaixa na regra.
+
+Por exemplo:
+
+homem(joao).
+homem(paulo).
+mulher(maria).
+mulher(laiz).
+
+participar_do_fut_fem(X) :- mulher(X).
+
+Neste caso, se eu colocar no terminal: "participar_do_fut_fem(Quem)."
+O terminal responderá:
+Quem = maria
+Quem = laiz
+
+Isso se dá pelo fato de "Quem" ser reconhecido como uma variável, desta forma, o prolog preenche com respostas validas para a regra.
+
+Etretanto, se eu colcocar: "participar_do_fut_fem(quem)."
+O terminal responderá:
+false.
+
+Isso se dá pelo fato de "quem" não estar nos fatos associados a mulher().
