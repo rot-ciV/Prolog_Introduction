@@ -1,0 +1,2 @@
+swipl: começar a rodar o SWI-Prolog.
+
