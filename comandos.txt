@@ -24,4 +24,4 @@ Etretanto, se eu colcocar: "participar_do_fut_fem(quem)."
 O terminal responderá:
 false.
 
-Isso se dá pelo fato de "quem" não estar nos fatos associados a mulher().
+Isso se dá pelo fato de "quem" ser reconhecido como um átomo, não estando nos fatos associados a mulher().
