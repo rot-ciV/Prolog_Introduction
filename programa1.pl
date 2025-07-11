@@ -1,5 +1,4 @@
-% Fatos
-
+% % == FATOS GERAIS ==
 
 artropode(formiga).
 artropode(aranha).
@@ -11,31 +10,59 @@ artropode(escorpiao).
 artropode(camarao).
 artropode(centopeia). 
 
+% % == FATOS CARACTERITICAS ==
+
+patas(formiga, 6).
+patas(lagarta, 6).
+patas(aranha, 8).
+patas(escorpiao, 8).
+patas(siri, 10).
+patas(camarao, 10).
+patas(piolho_de_cobra, 4).
+patas(lacraia, 2).
+patas(centopeia, 2).
+
+corpo(formiga, cabeca_torax_abdomen).
+corpo(lagarta, cabeca_torax_abdomen).
+corpo(aranha, cefalotorax_abdomen).
+corpo(escorpiao, cefalotorax_abdomen).
+corpo(siri, cefalotorax_abdomen).
+corpo(camarao, cefalotorax_abdomen).
+corpo(lacraia, cabeca_tronco).
+corpo(centopeia, cabeca_tronco).
+corpo(piolho_de_cobra, cabeca_tronco).
+
+
 
 % % == REGRAS DE CLASSIFICAÇÃO == 
 
 
 inseto(X) :- 
     artropode(X),
-    member(X, [formiga, lagarta]),
+    patas(X, 6),
+    corpo(X, cabeca_torax_abdomen),
     explicacao_inseto(X).
 
 aracnideo(X) :- 
     artropode(X),
-    member(X, [aranha, escorpiao]),
+    patas(X, 8),
+    corpo(X, cefalotorax_abdomen),
     explicacao_aracnideo(X).
 
 crustaceo(X) :- 
     artropode(X),
-    member(X, [siri, camarao]).
+    patas(X, 10),
+    corpo(X, cefalotorax_abdomen).
 
-quilopodes(X) :- 
+quilopode(X) :- 
     artropode(X),
-    member(X, [lacraia, centopeia]).
+    patas(X, 2),
+    corpo(X, cabeca_tronco).
 
 diplopode(X) :- 
     artropode(X),
-    member(X, [piolho_de_cobra]).
+    patas(X, 4),
+    corpo(X, cabeca_tronco).
 
 predador(X) :- member(X, [aranha, escorpiao, siri, lacraia, camarao]).
 
