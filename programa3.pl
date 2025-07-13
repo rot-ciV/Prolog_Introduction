@@ -153,11 +153,10 @@ genero(Jogo, Genero_Usuario) :-
 
 % % == COMEÇA RECOMENDAÇÃO ==
 
-:- inicializar(main).
+:- initialization(exibir_mensagem_inicial).
 
- main :-
- 
-    write("Para iniciar a recomendação, digite: \"iniciar_recomendacao\""),
+exibir_mensagem_inicial :- % <- Esta é a regra que executa a mensagem.
+    write("Para iniciar a recomendação, digite: iniciar_recomendacao."), nl.
 
 iniciar_recomendacao :-
 
