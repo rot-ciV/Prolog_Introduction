@@ -155,7 +155,8 @@ genero(Jogo, Genero_Usuario) :-
 
 :- initialization(exibir_mensagem_inicial).
 
-exibir_mensagem_inicial :- % <- Esta é a regra que executa a mensagem.
+exibir_mensagem_inicial :- 
+
     write("Para iniciar a recomendação, digite: iniciar_recomendacao."), nl.
 
 iniciar_recomendacao :-

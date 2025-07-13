@@ -1,5 +1,8 @@
 % % == FATOS GERAIS ==
 
+platelmintos(tenia).
+platelmintos(planaria).
+
 artropode(formiga).
 artropode(aranha).
 artropode(siri).
@@ -9,6 +12,7 @@ artropode(piolho_de_cobra).
 artropode(escorpiao).
 artropode(camarao).
 artropode(centopeia). 
+
 
 % % == FATOS CARACTERITICAS ==
 
@@ -32,6 +36,17 @@ corpo(lacraia, cabeca_tronco).
 corpo(centopeia, cabeca_tronco).
 corpo(piolho_de_cobra, cabeca_tronco).
 
+dieta(formiga, [herbivaro, carnivoro, necrofago]).
+dieta(lagarta, herbivaro).
+dieta(aranha, [carnivoro, necrofago]).
+dieta(escorpiao, carnivoro).
+dieta(siri, [herbivaro, carnivoro, necrofago]).
+dieta(camarao, [herbivaro, carnivoro, necrofago]).
+dieta(lacraia, carnivoro).
+dieta(centopeia, carnivoro).
+dieta(piolho_de_cobra, herbivaro).
+
+
 
 
 % % == REGRAS DE CLASSIFICAÇÃO == 
@@ -41,30 +56,47 @@ inseto(X) :-
     artropode(X),
     patas(X, 6),
     corpo(X, cabeca_torax_abdomen),
-    explicacao_inseto(X).
+    explicacao_inseto(X),
+    dieta(X, Dieta_Do_Animal),
+
+    write("Dieta da "), write(X), write(": "), write(Dieta_Do_Animal).
 
 aracnideo(X) :- 
     artropode(X),
     patas(X, 8),
     corpo(X, cefalotorax_abdomen),
-    explicacao_aracnideo(X).
+    explicacao_aracnideo(X),
+    dieta(X, Dieta_Do_Animal),
+
+    write("Dieta do(a) "), write(X), write(": "), write(Dieta_Do_Animal).
 
 crustaceo(X) :- 
     artropode(X),
     patas(X, 10),
-    corpo(X, cefalotorax_abdomen).
+    corpo(X, cefalotorax_abdomen),
+    explicacao_crustaceos(X),
+    dieta(X, Dieta_Do_Animal),
+
+    write("Dieta do "), write(X), write(": "), write(Dieta_Do_Animal).
 
 quilopode(X) :- 
     artropode(X),
     patas(X, 2),
-    corpo(X, cabeca_tronco).
+    corpo(X, cabeca_tronco),
+    dieta(X, Dieta_Do_Animal),
+
+    write("Dieta da "), write(X), write(": "), write(Dieta_Do_Animal).
 
 diplopode(X) :- 
     artropode(X),
     patas(X, 4),
-    corpo(X, cabeca_tronco).
+    corpo(X, cabeca_tronco),
+    dieta(X, Dieta_Do_Animal),
 
-predador(X) :- member(X, [aranha, escorpiao, siri, lacraia, camarao]).
+    write("Dieta do "), write(X), write(": "), write(Dieta_Do_Animal).
+
+
+
 
 
 % % === REGRAS DE EXPLICAÇÕES ESPECÍFICAS ===
@@ -94,4 +126,12 @@ explicacao_aracnideo(escorpiao) :-
     write('- Ter 4 pares de patas.'), nl,
     write('- Apresentar um corpo divido em apenas 2 partes: cefalotórax e abdômen.'), nl,
     write('- Não possuí antenas.'), nl.
+
+explicacao_crustaceos(X) :-
+    write("O "), write(X), write(" é um crustáceo pelas seguintes características:"), nl,
+    write("- Possuem dois pares de antenas."), nl,
+    write("- Diferentemente dos outros artrópodes, os apendices são bifurcados."), nl,
+    write("- carapaça revestindo o tórax e os segmentos anteriores."), nl.
+
+
 
