@@ -83,6 +83,7 @@ quilopode(X) :-
     artropode(X),
     patas(X, 2),
     corpo(X, cabeca_tronco),
+    explicacao_quilopodes(X),
     dieta(X, Dieta_Do_Animal),
 
     write("Dieta da "), write(X), write(": "), write(Dieta_Do_Animal).
@@ -91,6 +92,7 @@ diplopode(X) :-
     artropode(X),
     patas(X, 4),
     corpo(X, cabeca_tronco),
+    explicacao_diplopodes(X),
     dieta(X, Dieta_Do_Animal),
 
     write("Dieta do "), write(X), write(": "), write(Dieta_Do_Animal).
@@ -133,5 +135,67 @@ explicacao_crustaceos(X) :-
     write("- Diferentemente dos outros artrópodes, os apendices são bifurcados."), nl,
     write("- carapaça revestindo o tórax e os segmentos anteriores."), nl.
 
+explicacao_quilopodes(X) :-
+    write("O "), write(X), write(" é um quilopode pelas seguintes características:"), nl,
+    write("- Um par de antenas na cabeça"), nl,
+    write("- Diferentemente dos diplopodes, não tem a capacidade de se enrolar como defesa"), nl,
+    write("- Um par de patas por segmento do corpo."), nl.
+
+explicacao_diplopodes(X) :-
+    write("O "), write(X), write(" é um diplopode pelas seguintes características:"), nl,
+    write("- Possuem um par de antenas curtas que usam para sentir o ambiente. "), nl,
+    write("- Tem dois pares de pernas em cada segmento do corpo"), nl,
+    write("- Diferentemente dos quilopodes, tem a capacidade de se enrolar como defesa e não possuem veneno."), nl,
+    write("- Preferem locais úmidos e escuros, como embaixo de pedras, folhas caídas e troncos em decomposição. "), nl.
 
 
+    %% ---------------------- == SUMÁRIO: == ---------------------------
+
+    iniciar :-
+
+    write('-> insetos'), nl,
+         write('    .formiga'),nl,
+    write('-> aracnideos'), nl,
+         write('    .aranha'),nl,
+         write('    .escorpião'),nl,
+    write('-> crustaceos'), nl,
+         write('    .camarao'), nl,
+         write('    .siri'), nl,
+    write('-> quilopodes'), nl,
+         write('    .centopeia'), nl,
+         write('    .lagarta'), nl,
+         write('    .lacraia'), nl,
+    write('-> diplopodes'), nl,
+         write('    .piolho_de_cobra'), nl,nl,
+    
+    write('Aqui você vai digitar a classe que deseja dentro do filo dos artropodes e em seguida o animal pertencente: '), nl.
+
+    insetos :-
+
+    write('Escreva o inseto que deseja saber: '), nl,
+    read(X),
+    inseto(X).
+
+    aracnideos :-
+
+    write('Escreva o aracnideo que deseja saber: '), nl,
+    read(X),
+    aracnideo(X).
+
+    crustaceos :-
+
+    write('Escreva o crustaceo que deseja saber: '), nl,
+    read(X),
+    crustaceo(X).
+
+    quilopodes :-
+
+    write('Escreva o quilopode que deseja saber: '), nl,
+    read(X),
+    quilopode(X).
+
+    diplopodes :-
+
+    write('Escreva o diplopode que deseja saber: '), nl,
+    read(X),
+    diplopode(X).
